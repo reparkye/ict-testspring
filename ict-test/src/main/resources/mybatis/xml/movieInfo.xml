@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MOVIEINFO">
+  <select id="selectMovie" resultType="movie" parameterType="movie">
+    select * from ticket_movie
+    where tmnum &lt;=10				<!-- <= 와 같은 역할 -->
+    
+    <where>	
+    	<if test="tmname!=null">
+    		and tmname = #{tmname}
+    	</if>
+    	<if test="tmnum!=null">
+    		and tmnum = #{tmnum}
+    	</if>
+    </where>	
+  </select>
+</mapper>
+
